@@ -1,23 +1,27 @@
 from databases import get_db_connection
 from mysql.connector import Error
+from connexion import Connexion
 
 class User:
-    def __init__(self, id_user=None, role=None, username=None, password=None, id_groupe=None ):
+    def __init__(self, id_user=None, role=None, username=None, password=None, id_group=None ):
 
         self.id_user = id_user
         self.role = role
         self.username = username
         self.password = password
-        self.id_groupe = id_groupe
+        self.id_group = id_group
+
+        self.db_connexion = Connexion().connexion() 
+        # ici Connexion à avec une majuscule et des parenthèses car crée une instance de Connexion donc parenthèses. 
 
     
     def add_user(self):
         try:
-            connection = get_db_connection()
+            connection = self.db_connexion #
             cursor = connection.cursor()
 
             query = " INSERT INTO user (role, username, password, id_group)"
-            values = (self.nom,self.role,self.username,self.password,self.id_group)
+            values = (self.role,self.username,self.password,self.id_group)
 
             cursor.execute(query,values)
             connection.commit()
@@ -32,6 +36,7 @@ class User:
             if connection.is_connected():
                 cursor.close()
                 connection.close()
+
     
     def update_user(self):
 
