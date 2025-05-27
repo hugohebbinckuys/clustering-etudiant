@@ -16,7 +16,7 @@ class Connexion:
                     host="localhost", 
                     user="root", 
                     password="", 
-                    database="clustering_etudiant"
+                    database="clustering_etudiant",
                 )
                 self.connexion = db 
                 print ("connexion réussie")
