@@ -13,3 +13,9 @@
 
 ### lancer le serveur backend
   lancer la commande `npm run dev`
+
+
+### lancer l'algo 
+   à la racine lancer la commande `python .\backend\controller\grouping_controller.py`
+
+   
