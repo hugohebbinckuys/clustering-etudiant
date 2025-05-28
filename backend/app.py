@@ -1,11 +1,27 @@
 from flask import Flask, request, jsonify
-from user_model import User
+from flask_cors import CORS
+from models.user_model import User
 
 app = Flask(__name__)
+CORS(app, origins=["http://localhost:5173"]) #pour autoriser les requetes venant udu front
 
-@app.route('/add_user', methods=['POST'])
-def add_user_route () : 
-    infos = request.get_json()
-    user = User() 
+@app.route('/api/users', methods=['POST'])
+def create_user():
+    data = request.get_json()
 
-    
+    username = data.get('username')
+    password = data.get('password')
+
+    if not username or not password:
+        return jsonify({"error": "Username and password are required"}), 400
+
+    user = User(username=username, password=password)  # Role = "student" par défaut
+    success = user.add_user()
+
+    if success:
+        return jsonify({"message": "User created successfully"}), 201
+    else:
+        return jsonify({"error": "Failed to create user"}), 500
+
+if __name__ == '__main__':
+    app.run(debug=True)

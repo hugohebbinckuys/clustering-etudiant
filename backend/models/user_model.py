@@ -1,4 +1,4 @@
-from databases import get_db_connection
+# from databases import get_db_connection
 from mysql.connector import Error
 from connexion import Connexion
 
@@ -17,25 +17,25 @@ class User:
     
     def add_user(self):
         try:
-            connection = self.db_connexion #
+            connection = self.db_connexion
             cursor = connection.cursor()
 
-            query = " INSERT INTO user (role, username, password, id_group)"
-            values = (self.role,self.username,self.password,self.id_group)
+            query = "INSERT INTO user (role, username, password, id_group) VALUES (%s, %s, %s, %s)"
+            values = (self.role, self.username, self.password, self.id_group)
 
-            cursor.execute(query,values)
+            cursor.execute(query, values)
             connection.commit()
 
             return True
-        
+
         except Error as e:
-            print(f"Failed to create new user:{e}")
+            print(f"Failed to create new user: {e}")
             return False
-        
-        finally: # execute in any case (failed or success) to free databases usage
-            if connection.is_connected():
-                cursor.close()
-                connection.close()
+
+        finally:
+            cursor.close()
+            connection.close()
+
 
     
     def update_user(self):
