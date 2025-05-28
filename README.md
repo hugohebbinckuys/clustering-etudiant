@@ -1,4 +1,6 @@
 -> A la racine : lancer la commande `pip install -r requirements` 
+-> Importer la base de données qui est a la racine dans une bdd qui s'appelle 
+
 
 # Le Grouping Controller 
 c'est pour tester l'algorithme de glouton qu'on a choisi pour faire les groupes. 
