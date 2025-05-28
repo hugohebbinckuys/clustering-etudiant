@@ -1,3 +1,5 @@
+-> A la racine : lancer la commande `pip install -r requirements` 
+
 # Le Grouping Controller 
 c'est pour tester l'algorithme de glouton qu'on a choisi pour faire les groupes. 
 Les etudiants ne peuvent pas encore etre importé depuis la bdd donc on a créée manuellement les etudiants dans le fichier json "student_affinity.json" pour pouvoir tester la répartition des groupes via le terminal.  
