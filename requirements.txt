@@ -3,3 +3,8 @@ sqlalchemy==2.0.41
 greenlet==3.2.2
 typing-extensions==4.13.2
 mysql-connector==2.2.9
+pytest==8.3.5
+colorama==0.4.6
+iniconfig==2.1.0
+packaging==25.0
+pluggy==1.6.0
