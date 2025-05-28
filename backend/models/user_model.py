@@ -1,9 +1,15 @@
-from databases import get_db_connection
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from connexion import Connexion
+
+
 from mysql.connector import Error
 from connexion import Connexion
 
 class User:
-    def __init__(self, id_user=None, role=None, username=None, password=None, id_group=None ):
+    def __init__(self, id_user=None, role="student", username=None, password=None, id_group=None ):
 
         self.id_user = id_user
         self.role = role
@@ -16,26 +22,29 @@ class User:
 
     
     def add_user(self):
-        try:
-            connection = self.db_connexion #
-            cursor = connection.cursor()
-
-            query = " INSERT INTO user (role, username, password, id_group)"
-            values = (self.role,self.username,self.password,self.id_group)
-
-            cursor.execute(query,values)
-            connection.commit()
-
-            return True
-        
-        except Error as e:
-            print(f"Failed to create new user:{e}")
+        connection = self.db_connexion
+        if connection is None:
+            print("Connexion à la base échouée")
             return False
-        
-        finally: # execute in any case (failed or success) to free databases usage
-            if connection.is_connected():
+
+        cursor = None
+        try:
+            cursor = connection.cursor()
+            query = "INSERT INTO user (role, username, password, id_group) VALUES (%s, %s, %s, %s)"
+            values = (self.role, self.username, self.password, self.id_group)
+            cursor.execute(query, values)
+            connection.commit()
+            return True
+        except Error as e:
+            print(f"Failed to create new user: {e}")
+            return False
+        finally:
+            if cursor:
                 cursor.close()
+            if connection:
                 connection.close()
+
+
 
     
     def update_user(self):
