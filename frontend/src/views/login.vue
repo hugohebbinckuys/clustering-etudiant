@@ -1,4 +1,5 @@
 <script setup>
+<<<<<<< HEAD
 import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
@@ -28,6 +29,8 @@ const login = async (e) => {
     message.value = 'Erreur serveur ou de connexion.'
   }
 }
+=======
+>>>>>>> student-views
 </script>
 
 <template>
