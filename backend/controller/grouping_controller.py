@@ -162,38 +162,13 @@ class GroupingController:
 
 
     
-    
 
-
-    
-
-    
-
-        
-
-
-
-
-
-        
-
-
-
-            
 
 if __name__ == "__main__":
   
     gc = GroupingController(3)
-    print(gc.evaluate_group_score(gc.build_groups(),gc.get_affinity_matrix()))
+    print(gc.build_groups())
         
-
-                
-
-            
-
-
-
-
     # def create_groups(self)
    
     #def greedy_grouping(self)
