@@ -44,6 +44,43 @@ class User:
             if connection:
                 connection.close()
 
+    @staticmethod
+    def login_user(username, password):
+        from connexion import Connexion
+        connection = Connexion().connexion()
+
+        if connection is None:
+            print("Connexion à la base échouée")
+            return None
+
+        cursor = None
+        try:
+            cursor = connection.cursor(dictionary=True)
+            query = "SELECT * FROM user WHERE username = %s AND password = %s"
+            cursor.execute(query, (username, password))
+            result = cursor.fetchone()
+
+            if result:
+                return User(
+                    id_user=result["id_user"],
+                    role=result["role"],
+                    username=result["username"],
+                    password=result["password"],
+                    id_group=result["id_group"]
+                )
+            else:
+                print("Identifiants incorrects")
+                return None
+        except Error as e:
+            print(f"Erreur lors de la tentative de login : {e}")
+            return None
+        finally:
+            if cursor:
+                cursor.close()
+            if connection:
+                connection.close()
+
+
 
 
     

@@ -22,6 +22,26 @@ def create_user():
         return jsonify({"message": "User created successfully"}), 201
     else:
         return jsonify({"error": "Failed to create user"}), 500
+    
+    
+@app.route('/api/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    username = data.get("username")
+    password = data.get("password")
+
+    user = User.login_user(username, password)
+    if user:
+        return jsonify({
+            "success": True,
+            "id_user": user.id_user,
+            "role": user.role,
+            "username": user.username,
+            "id_group": user.id_group
+        }), 200
+    else:
+        return jsonify({"success": False, "message": "Identifiants invalides"}), 401
+
 
 if __name__ == '__main__':
     app.run(debug=True)
