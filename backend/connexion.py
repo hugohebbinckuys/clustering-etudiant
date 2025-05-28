@@ -13,9 +13,14 @@ class Connexion:
                     password="", 
                     database="clustering_etudiant",
                 )
+                self.connection = db 
+                print ("connexion réussie")
+                return self.connection
+            except mysql.connector.Error as erreur:
+                print (f"erreur lors de la connexion a la db : {erreur}") 
                 print("connexion réussie")
             except mysql.connector.Error as erreur:
                 print(f"Erreur lors de la connexion à la DB : \n{erreur}\n") 
                 self.connection = None
-        return self.connection
+                return self.connection 
 
