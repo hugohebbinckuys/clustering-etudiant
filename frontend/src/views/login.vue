@@ -20,8 +20,16 @@ const login = async (e) => {
 
     if (response.data.success) {
         localStorage.setItem('isAuthenticated', 'true') // <- ajoute ceci
-
-        router.push('/student')
+        if(response.data.role == "student"){
+            router.push('/student')
+        }
+        else if(response.data.role == "teacher"){
+          router.push("/teacher")
+        }
+        else if(response.data.role == "Admin"){
+          router.push("/admin")
+        }
+        
     } else {
       message.value = 'Identifiants invalides.'
     }
