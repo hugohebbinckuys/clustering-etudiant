@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import { onMounted } from 'vue'; 
 
 const student_total = ref(7);
 const nb_points = ref(100);
@@ -24,6 +25,7 @@ const decrementer = (index) => {
 </script>
 
 <template>
+  <h4> recharger la page lors de l'arrivée sur cette page </h4>
   <p v-if="student_total === 0">Pas de Form actuellement</p>
 
   <div v-else>

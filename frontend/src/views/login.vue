@@ -1,5 +1,5 @@
 <script setup>
-<<<<<<< HEAD
+
 import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
@@ -19,8 +19,9 @@ const login = async (e) => {
     })
 
     if (response.data.success) {
-      // Redirection vers /student
-      router.push('/student')
+        localStorage.setItem('isAuthenticated', 'true') // <- ajoute ceci
+
+        router.push('/student')
     } else {
       message.value = 'Identifiants invalides.'
     }
@@ -29,8 +30,6 @@ const login = async (e) => {
     message.value = 'Erreur serveur ou de connexion.'
   }
 }
-=======
->>>>>>> student-views
 </script>
 
 <template>
