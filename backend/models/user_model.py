@@ -2,9 +2,6 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from connexion import Connexion
-
-
 from mysql.connector import Error
 from connexion import Connexion
 

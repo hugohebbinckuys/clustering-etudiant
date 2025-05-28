@@ -1,14 +1,36 @@
-from databases import get_db_connection
 from mysql.connector import Error
+from connexion import Connexion
 
-class affinitie:
+class Affinitie:
 
-    def __init__(self,id_affinity=None ,student_1=None ,student_2=None ,value_aff=None):
-
-        self.id_affinity = id_affinity,
-        self.student_1 = student_1,
-        self.student_2 = student_2,
+    def __init__(self, id_affinity=None, student_1=None, student_2=None, value_aff=None):
+        self.id_affinity = id_affinity
+        self.student_1 = student_1
+        self.student_2 = student_2
         self.value_aff = value_aff
+        self.db_connection = Connexion().connexion()
+
+    def save_affinities(self, data):
+        try:
+            connection = self.db_connection
+            cursor = connection.cursor()
+
+            voting_student = data['voting']
+            votes = data['votes']  # Liste de { student_id, value }
+
+            for vote in votes:
+                cursor.execute("""
+                    INSERT INTO affinities (student_1, student_2, value_aff)
+                    VALUES (%s, %s, %s)
+                """, (voting_student, vote['student_id'], vote['value']))
+
+            connection.commit()
+        except Error as e:
+            print("Erreur lors de l'insertion dans affinities :", e)
+        finally:
+            if cursor:
+                cursor.close()
+
 
     
     def add_affinity(self):

@@ -1,6 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from models.user_model import User
+from models.form_model import Form
+# from models.affinite_model import save_affinities
+
+
 
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:5173"]) #pour autoriser les requetes venant udu front
@@ -41,6 +45,36 @@ def login():
         }), 200
     else:
         return jsonify({"success": False, "message": "Identifiants invalides"}), 401
+
+
+@app.route('/api/forms', methods=['POST'])
+def create_form():
+    data = request.get_json()
+    open_at = data.get('open_at')
+    closed_at = data.get('closed_at')
+    choice_number = data.get('choice_number')
+
+    form = Form(open_at, closed_at, choice_number)
+    success = form.save()
+
+    if success:
+        return jsonify({'message': 'Formulaire créé'}), 201
+    else:
+        return jsonify({'error': 'Erreur lors de la création'}), 500
+
+
+@app.route('/api/submit-vote', methods=['POST'])
+def submit_vote():
+    data = request.json
+    try:
+        save_affinities(data)
+        return jsonify({'message': 'Votes enregistrés avec succès'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+
+
 
 
 if __name__ == '__main__':
