@@ -1,5 +1,5 @@
 -> A la racine : lancer la commande `pip install -r requirements` 
--> Importer la base de données qui est a la racine dans une bdd qui s'appelle 
+-> Importer la base de données qui est a la racine dans une bdd qui s'appelle clustering_etudiant.sql
 
 
 # Le Grouping Controller 
