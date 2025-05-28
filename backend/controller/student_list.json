@@ -1,0 +1,134 @@
+{
+  "students": [
+    {
+      "student_1": {
+        "student_2": 15,
+        "student_3": 8,
+        "student_4": 22,
+        "student_5": 12,
+        "student_6": 5,
+        "student_7": 18,
+        "student_8": 3,
+        "student_9": 7,
+        "student_10": 10
+      }
+    },
+    {
+      "student_2": {
+        "student_1": 20,
+        "student_3": 14,
+        "student_4": 6,
+        "student_5": 25,
+        "student_6": 11,
+        "student_7": 4,
+        "student_8": 9,
+        "student_9": 16,
+        "student_10": 15
+      }
+    },
+    {
+      "student_3": {
+        "student_1": 12,
+        "student_2": 19,
+        "student_4": 28,
+        "student_5": 7,
+        "student_6": 15,
+        "student_7": 3,
+        "student_8": 11,
+        "student_9": 5,
+        "student_10": 20
+      }
+    },
+    {
+      "student_4": {
+        "student_1": 17,
+        "student_2": 9,
+        "student_3": 24,
+        "student_5": 13,
+        "student_6": 8,
+        "student_7": 21,
+        "student_8": 6,
+        "student_9": 14,
+        "student_10": 12
+      }
+    },
+    {
+      "student_5": {
+        "student_1": 11,
+        "student_2": 26,
+        "student_3": 5,
+        "student_4": 18,
+        "student_6": 16,
+        "student_7": 7,
+        "student_8": 13,
+        "student_9": 4,
+        "student_10": 25
+      }
+    },
+    {
+      "student_6": {
+        "student_1": 8,
+        "student_2": 14,
+        "student_3": 23,
+        "student_4": 10,
+        "student_5": 19,
+        "student_7": 12,
+        "student_8": 6,
+        "student_9": 17,
+        "student_10": 9
+      }
+    },
+    {
+      "student_7": {
+        "student_1": 21,
+        "student_2": 7,
+        "student_3": 15,
+        "student_4": 29,
+        "student_5": 4,
+        "student_6": 11,
+        "student_8": 8,
+        "student_9": 13,
+        "student_10": 16
+      }
+    },
+    {
+      "student_8": {
+        "student_1": 6,
+        "student_2": 18,
+        "student_3": 12,
+        "student_4": 9,
+        "student_5": 27,
+        "student_6": 14,
+        "student_7": 5,
+        "student_9": 20,
+        "student_10": 11
+      }
+    },
+    {
+      "student_9": {
+        "student_1": 13,
+        "student_2": 22,
+        "student_3": 4,
+        "student_4": 16,
+        "student_5": 8,
+        "student_6": 25,
+        "student_7": 10,
+        "student_8": 19,
+        "student_10": 7
+      }
+    },
+    {
+      "student_10": {
+        "student_1": 24,
+        "student_2": 11,
+        "student_3": 17,
+        "student_4": 5,
+        "student_5": 21,
+        "student_6": 3,
+        "student_7": 14,
+        "student_8": 15,
+        "student_9": 12
+      }
+    }
+  ]
+}
