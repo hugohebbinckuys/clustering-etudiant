@@ -3,7 +3,7 @@ from mysql.connector import Error
 from connexion import Connexion
 
 class User:
-    def __init__(self, id_user=None, role=None, username=None, password=None, id_group=None ):
+    def __init__(self, id_user=None, role="student", username=None, password=None, id_group=None ):
 
         self.id_user = id_user
         self.role = role
