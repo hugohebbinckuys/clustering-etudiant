@@ -1,4 +1,10 @@
-# from databases import get_db_connection
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from connexion import Connexion
+
+
 from mysql.connector import Error
 from connexion import Connexion
 
@@ -16,25 +22,28 @@ class User:
 
     
     def add_user(self):
-        try:
-            connection = self.db_connexion
-            cursor = connection.cursor()
+        connection = self.db_connexion
+        if connection is None:
+            print("Connexion à la base échouée")
+            return False
 
+        cursor = None
+        try:
+            cursor = connection.cursor()
             query = "INSERT INTO user (role, username, password, id_group) VALUES (%s, %s, %s, %s)"
             values = (self.role, self.username, self.password, self.id_group)
-
             cursor.execute(query, values)
             connection.commit()
-
             return True
-
         except Error as e:
             print(f"Failed to create new user: {e}")
             return False
-
         finally:
-            cursor.close()
-            connection.close()
+            if cursor:
+                cursor.close()
+            if connection:
+                connection.close()
+
 
 
     
