@@ -7,7 +7,7 @@
   executer la commande `python app.py`
 
 
-##Initialiser le frontend
+## Initialiser le frontend
 ### installer les dependance pour vue
  lancer la commande `npm install`
 
