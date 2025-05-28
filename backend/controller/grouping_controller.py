@@ -153,7 +153,7 @@ class GroupingController:
                     group_affinity += affinity
                     nb_pairs += 1
             
-            avg_affinity = group_affinity / nb_pairs if nb_pairs > 0 else 0
+            avg_affinity = group_affinity / nb_pairs if nb_pairs > 0 else 0 #division by 0 is impossible.
             total_affinity += group_affinity
             
           
