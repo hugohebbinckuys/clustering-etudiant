@@ -33,5 +33,4 @@ const decrementer = () => {
             <input type="number" v-model="number" placeholder="points pour l'étudiant"> <span> <button :disabled="nb_points<=0" @click="decrementer()" value="number"> - </button> <button :disabled="nb_points>=100" @click="incrementer()" value="number"> + </button></span>
         </form>
     </div>
-
 </template>
