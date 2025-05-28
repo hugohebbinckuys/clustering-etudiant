@@ -1,17 +1,15 @@
--> A la racine : lancer la commande `pip install -r requirements` 
--> Importer la base de données qui est a la racine dans une bdd qui s'appelle clustering_etudiant.sql
+
+## Initialiser le backend
+### Installer les dépendances 
+   pip install -r requirements
+### Lancer le serveur backend 
+  cd `backend` (s'assurer d'etre dans le dossier backend)
+  executer la commande `python app.py`
 
 
-# Le Grouping Controller 
-c'est pour tester l'algorithme de glouton qu'on a choisi pour faire les groupes. 
-Les etudiants ne peuvent pas encore etre importé depuis la bdd donc on a créée manuellement les etudiants dans le fichier json "student_affinity.json" pour pouvoir tester la répartition des groupes via le terminal.  
+##Initialiser le frontend
+### installer les dependance pour vue
+ lancer la commande `npm install`
 
-Lancer le Grouping Controller : 
--> Se placer à la racine du projet, puis lancer la commande : `python .\backend\controller\grouping_controller.py`
-
-
-
-# le serveur python : 
-
--> Se placer à la racine du projet, puis lancer la commande : `python .\backend\app.py`
--> Sur un autre terminal, à la racine du projet faire `cd frontend` puis `npm run dev` pour lancer le servuer web 
+### lancer le serveur backend
+  lancer la commande `npm run dev`
